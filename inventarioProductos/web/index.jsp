@@ -13,7 +13,7 @@
     </head>
     <body>
         <form action="servletSalida" method="post">
-            <br><label>Nombre&nbsp&nbsp</label><input type="text" name="Nombre">   <label>Email&nbsp&nbsp</label><input type="text" name="Email">   <label>Contraseña&nbsp&nbsp</label><input type="password" name="Pass">  <input name="iniciar" type="submit" value="iniciar"> 
+            <br><label>Nombre&nbsp&nbsp</label><input type="text" name="Nombre" required/>   <label>Email&nbsp&nbsp</label><input type="email" name="Email" required/>   <label>Contraseña&nbsp&nbsp</label><input type="password" name="Pass" required/>  <input name="iniciar" type="submit" value="iniciar"> 
             <a href="recuperarContrasena.html">Recuperar contraseña</a>
             <a href="entrada.html">Usuario nuevo</a>
         </form>
