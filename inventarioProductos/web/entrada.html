@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div>Registro de usuario nuevo</div>
+        <form action="usuarioNuevo" method="get">
+            <br><label>Nombre</label><input type="text" name="Nombre">
+            <br><label>Apellidos</label><input type="text" name="Apellidos">
+            <br><label>Correo electronico</label><input type="text" name="correo">
+            <br><label>Contraseña</label><input type="password" name="Pass">
+            <br>
+            <br><input type="submit" value="Registrarse">  
+        </form>
+        <script src="js/sha1.js"></script>
+	<script>
+		function cifrar(){
+			var input_pass = document.getElementById("Pass");
+			input_pass.value = sha1(input_pass.value);
+		}
+	</script>
+    </body>
+</html>
