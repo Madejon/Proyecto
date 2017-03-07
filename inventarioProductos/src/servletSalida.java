@@ -72,14 +72,14 @@ public class servletSalida extends HttpServlet {
         
             try{
                 Class.forName("org.gjt.mm.mysql.Driver");
-                conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/distribuciones_linai","usuario_","admin");
+                conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/administracioninventario","usuario","admin");
                 Statement stmt = conn.createStatement();
-                ResultSet resultado =stmt.executeQuery("SELECT Correo FROM usuarios");
+                ResultSet resultado =stmt.executeQuery("SELECT email FROM usuarios");
                 while (resultado.next()) { 
-                        if(email.equals(resultado.getString("Correo"))){
-                            resultado =stmt.executeQuery("SELECT Contrasena FROM usuarios WHERE Correo = '"+email+"'");
+                        if(email.equals(resultado.getString("email"))){
+                            resultado =stmt.executeQuery("SELECT contrasena FROM usuarios WHERE email = '"+email+"'");
                             while (resultado.next()) { //Es mas correcto poner el next en el while, te hace lo mismo que tenias en tu antiguo codigo pero en menos lineas y mas limpio
-                                if(contra.equals(resultado.getString("Contrasena"))){
+                                if(contra.equals(resultado.getString("contrasena"))){
                                     HttpSession httpsession = request.getSession();
                                     httpsession.getAttribute(request.getParameter("Nombre"));
                                     request.getRequestDispatcher("salida.jsp").forward(request, response);

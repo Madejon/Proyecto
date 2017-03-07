@@ -42,7 +42,7 @@ public class usuarioNuevo extends HttpServlet {
             throws ServletException, IOException {
         try{
             Class.forName("org.gjt.mm.mysql.Driver");
-            conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/distribuciones_linai","usuario_","admin");
+            conn=(Connection)DriverManager.getConnection("jdbc:mysql://localhost:3306/administracioninventario","usuario","admin");
             Statement stmt = conn.createStatement();
             stmt.executeUpdate("INSERT INTO usuarios VALUES (NULL,'"+request.getParameter("Nombre")+"','"+request.getParameter("Apellidos")+"','"+request.getParameter("correo")+"','"+request.getParameter("Pass")+"')");
             conn.close();

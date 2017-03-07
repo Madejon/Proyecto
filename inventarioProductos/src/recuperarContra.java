@@ -64,16 +64,16 @@ public class recuperarContra extends HttpServlet {
         
         try{
                 Class.forName("org.gjt.mm.mysql.Driver");
-                conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/distribuciones_linai","usuario_","admin");
+                conn=(Connection) DriverManager.getConnection("jdbc:mysql://localhost:3306/administracioninventario","usuario","admin");
                 Statement stmt = conn.createStatement();
-                ResultSet resultado =stmt.executeQuery("SELECT Correo FROM usuarios");
+                ResultSet resultado =stmt.executeQuery("SELECT email FROM usuarios");
                 while (resultado.next()) { 
-                        if(correo_.equals(resultado.getString("Correo"))){
+                        if(correo_.equals(resultado.getString("email"))){
                             resultado.close();
                             con=1;
-                            resultado =stmt.executeQuery("SELECT Contrasena FROM usuarios WHERE Correo= '"+correo_+"'");
+                            resultado =stmt.executeQuery("SELECT contrasena FROM usuarios WHERE email= '"+correo_+"'");
                             while(resultado.next()){
-                                contrasena=resultado.getString("Contrasena");
+                                contrasena=resultado.getString("contrasena");
                                 Properties p = new Properties();
                                 c.setAsunto("Mensaje automático para recuperar su contraseña en Distribuciones Linai SA");
                                 c.setMensaje("Su contraseña es "+contrasena);
@@ -111,7 +111,6 @@ public class recuperarContra extends HttpServlet {
                 e.printStackTrace();
             }catch (ClassNotFoundException e){
                 e.printStackTrace();
-            
             } catch (MessagingException ex) {
             Logger.getLogger(recuperarContra.class.getName()).log(Level.SEVERE, null, ex);
         }
