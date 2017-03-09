@@ -13,6 +13,6 @@
         
     </head>
     <body>
-        <b><%out.println("Bienvenido: "+session.getId()); %></b><form action="cerrarSession" method="post"><input type="submit" value="Cerrar Sesion"></form>
+        <b><%System.out.println("Bienvenido: "+session.getId()); %></b><form action="cerrarSession" method="post"><input type="submit" value="Cerrar Sesion"></form>
    </body>
 </html>
