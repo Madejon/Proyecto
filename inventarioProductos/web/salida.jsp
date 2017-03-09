@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sesion iniciada</title>
+        
     </head>
     <body>
-        <b>Bienvenido: <%=request.getParameter("Nombre")%></b><form action="cerrarSession" method="post"><input type="submit" value="Cerrar Sesion"></form>
+        <b><%out.println("Bienvenido: "+session.getId()); %></b><form action="cerrarSession" method="post"><input type="submit" value="Cerrar Sesion"></form>
    </body>
 </html>
